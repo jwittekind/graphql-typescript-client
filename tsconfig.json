@@ -2,13 +2,14 @@
     "compilerOptions": {
         "target": "es5",
         "declaration": true,
-        "declarationMap": true,
         "module": "commonjs",
+        "declarationMap": true,
         "esModuleInterop": true,
-        "strict": true,
+        "strict": false,
         "outDir": "dist",
-        "sourceRoot": "src",
         "sourceMap": true,
+        "sourceRoot": "src",
+        "experimentalDecorators": true,
         "lib": [
             "es2017",
             "es7",

@@ -6,7 +6,7 @@ import { GraphqlSchemaService } from '../services/graphql-schema.service';
  */
 export function ArgsType() {
     // pass arguments for queries here?
-    return function(constructor) {
+    return function(constructor: any) {
         let constructorName;
         if (typeof constructor === 'function' && constructor.name) {
             // get class name by static class
