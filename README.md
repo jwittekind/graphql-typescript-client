@@ -109,6 +109,9 @@ export class PostsQueryVariables {
 
 #### posts-pagination.type.ts
 `````
+/**
+ * PostPaginationType
+ */
 import { Field, ObjectType } from "../../../src";
 import { PostType } from "./post.type";
 
@@ -128,9 +131,8 @@ export class PostPaginationType {
 
 #### posts.type.ts
 `````
-
 /**
- * UserType
+ * PostType
  */
 @ObjectType('PostType')
 export class PostType {
