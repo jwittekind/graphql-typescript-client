@@ -1,0 +1,28 @@
+{
+    "name": "type-graphql-client",
+    "version": "0.0.1",
+    "author": "Julius Wittekind",
+    "description": "A Type GraphQL Library for Apollo Clients",
+    "types": "index.d.ts",
+    "main": "dist/index.js",
+    "prepublish": "tsc",
+    "scripts": {
+        "build": "tsc"
+    },
+    "keywords": [
+        "graphql",
+        "typeGraphql",
+        "apollo",
+        "apolloClient"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jwjuele/type-graphql-client.git"
+    },
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "typescript": "^3.8.3"
+    }
+}
