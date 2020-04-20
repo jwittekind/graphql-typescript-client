@@ -41,7 +41,7 @@ With this repository i'd like to invite you into the work on this idea.
 
 ## Examples
 
-####./posts.query.ts
+###./posts.query.ts
 `````
 import {QueryType} from "../../src/graphql-type";
 import {PostsQueryVariables} from "../variables/posts-query-variables.variables";
@@ -76,7 +76,7 @@ export class PostsQuery<R = any> extends QueryType<R, PostsQueryVariables> {
 
 `````
 
-####./posts-query.variables.ts
+###./posts-query.variables.ts
 `````
 import {ArgsType, ArgDefinition} from "../../src";
 
@@ -107,7 +107,7 @@ export class PostsQueryVariables {
 
 `````
 
-####./posts-pagination.type.ts
+###./posts-pagination.type.ts
 `````
 import { Field, ObjectType } from "../../../src";
 import { PostType } from "./post.type";
@@ -126,7 +126,7 @@ export class PostPaginationType {
 
 `````
 
-####./posts.type.ts
+###./posts.type.ts
 `````
 
 /**
