@@ -1,0 +1,30 @@
+{
+  "name": "type-graphql-cli",
+  "version": "0.0.0",
+  "description": "A blank schematics",
+  "scripts": {
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "build": "tsc -p tsconfig.json",
+    "tgql-client:types": "schematics .:type-graphql-client --types --offset=0 --limit=150 --debug=false",
+    "tgql-client:operations": "schematics .:type-graphql-client --operations --offset=0 --limit=150 --debug=false",
+    "tgql-client:variables": "schematics .:type-graphql-client --variables --offset=0 --limit=150 --debug=false",
+    "tgql-client:generate": "npm run tgql-client:types && npm run tgql-client:operations && npm run tgql-client:variables",
+    "test": "npm run build && jasmine src/**/*_spec.js"
+  },
+  "keywords": [
+    "schematics"
+  ],
+  "author": "",
+  "license": "MIT",
+  "schematics": "./src/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^9.1.1",
+    "@angular-devkit/schematics": "^9.1.1",
+    "typescript": "~3.8.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "~3.5.0",
+    "@types/node": "^12.12.35",
+    "jasmine": "^3.5.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "graphql-jazz": {
+            "description": "A blank schematic.",
+            "factory": "./graphql-jazz/index#graphqlJazz",
+            "schema": "./graphql-jazz/schema.json"
+        }
+    }
+}

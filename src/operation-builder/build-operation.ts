@@ -1,5 +1,5 @@
 import { GraphqlSchemaService } from '../services/graphql-schema.service';
-import { GqlJazzMutationFields, GqlJazzQueryFields } from '../graphql-jazz.models';
+import { GqlJazzMutationFields, GqlJazzQueryFields } from '../type-graphql-cli.models';
 
 export type TypeGQLOperation = any | {
     args?: string;
