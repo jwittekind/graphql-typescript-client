@@ -1,7 +1,4 @@
 import { TypeGQLOperation } from '../operation-builder';
-import { GraphqlJazzInjectorInstance } from '../graphql-jazz.module';
-import { GraphqlOperationService } from '../services/graphql-operation.service';
-
 /**
  *
  * @param queryOperation
@@ -10,10 +7,10 @@ import { GraphqlOperationService } from '../services/graphql-operation.service';
  * @constructor
  */
 export function Query(queryOperation: string | TypeGQLOperation, QueryName?: string | any, someArg?: any) {
-    return function(target: any, key: string | symbol, descriptor?: PropertyDescriptor) {
-        target[key] = function(queryName?: string) {
-            return GraphqlJazzInjectorInstance.get(GraphqlOperationService)
-                .query(queryOperation, null, queryName || QueryName);
+    return (target: any, key: string | symbol, descriptor?: PropertyDescriptor) => {
+        // define the property of @Query decorated
+        target[key] = (queryName?: string) => {
+            // execute mutation operation and return Observable<ApolloQueryResult<T>>
         };
     };
 }

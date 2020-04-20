@@ -10,7 +10,7 @@ import { TypeGQLOperation } from '../operation-builder';
 export function WatchQuery(queryOperation: string | TypeGQLOperation, QueryName?: string | any, someArg?: any) {
     return function(target: any, key: string | symbol, descriptor?: PropertyDescriptor) {
         target[key] = function(queryName?: string) {
-            return new queryOperation();
+            // execute mutation operation and return QueryRef<R, V>
         };
     };
 }

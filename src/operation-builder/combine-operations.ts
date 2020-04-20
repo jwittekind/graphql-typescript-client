@@ -1,8 +1,15 @@
 /**
  *
- * @param queryConfigs
- * @param options
- * @param queryName
+ * Combine Queries
+ *
+ * This method has not been maintained.
+ * It's supposed to combine multiple queries to one.
+ *
+ * Btw. this can also be accomplished by using the HttpBatchLink module
+ *
+ * @param queryConfigs {object} object of type { [queryName: string]: TypeGqlOperation }
+ * @param options any
+ * @param queryName {string}
  */
 import { parseOperationConfig } from './build-operation';
 
@@ -13,7 +20,6 @@ export function combineQueries(queryConfigs: any, options?: any, queryName?: str
         const customQueryName = !!queryName;
         let variables = {},
             graphQlQuery = '',
-            defaultValues = {},
             queryArguments = '';
         for (const operationName in queryConfigs) {
             if (queryConfigs.hasOwnProperty(operationName) && queryConfigs[operationName]) {
@@ -24,8 +30,6 @@ export function combineQueries(queryConfigs: any, options?: any, queryName?: str
                     const queryParams = parseOperationConfig(config.query[itemName], options);
                     // saving custom values
                     variables = { ...variables, ...config.variables };
-                    // setting default variable values of query
-                    defaultValues = { ...queryParams.defaultValues, ...defaultValues };
                     // adding query arguments
                     queryArguments += queryParams.args;
                     // adding query params and sub params
@@ -42,7 +46,7 @@ export function combineQueries(queryConfigs: any, options?: any, queryName?: str
             (queryArguments.length > 0 ? '(' + queryArguments.substring(2).trim() + ')' : '') +
             ` { ${graphQlQuery} }`;
 
-        return { query, queryName, variables: { ...defaultValues, ...variables } };
+        return { query, queryName, variables };
     }
     return null;
 }

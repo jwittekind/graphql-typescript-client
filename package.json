@@ -7,7 +7,7 @@
     "main": "dist/index.js",
     "prepublish": "tsc",
     "scripts": {
-        "build": "tsc"
+        "build": "tsc -p ."
     },
     "keywords": [
         "graphql",

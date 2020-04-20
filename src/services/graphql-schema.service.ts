@@ -1,11 +1,16 @@
+/**
+ * Graphql Schema Service
+ *
+ * The Graphql Schema Service stores all kinds of graphql types, fields & args,
+ * that are initialized by the type-graphql-client decorators
+ *
+ */
 export const GraphqlSchemaService = {
     types: {},
     fields: {},
     arguments: {},
     typeModels: {},
     configArguments: {},
-    operationHandlers: new Map(),
-    // mutationConfigs: new Map(),
 
     getTypeModel(className: string) {
         return this.typeModels[className];
@@ -55,13 +60,20 @@ export const GraphqlSchemaService = {
 
     /**
      *
+     * instantiateDataType !!!
+     *
+     * This is another important functionality
+     *
+     * this method takes a query/mutation response and instantiates all
+     * graphql data with their appropriate class registered by @ObjectType('__typename')
+     *
      * @param data
      */
     instantiateDataType(data: any) {
         if (Array.isArray(data) && data.length) {
             data = data.map((obj) => this.instantiateDataType(obj));
         } else if (data && typeof data === 'object') {
-            let typeName: string;
+            let typeName: string = null;
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     if (key === '__typename') {
@@ -76,7 +88,15 @@ export const GraphqlSchemaService = {
             }
             if (typeName) {
                 const model = this.getTypeModel(data.__typename);
-                data = model ? Object.assign(new model(), data) : data;
+                if (model) {
+                    const dataModel = new model();
+                    for(const key in data) {
+                        if (data.hasOwnProperty(key)) {
+                            dataModel[key] = data[key];
+                        }
+                    }
+                    data = dataModel;
+                }
             }
         }
         return data;

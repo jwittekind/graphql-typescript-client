@@ -27,7 +27,7 @@ export interface GqlJazzParams {
 }
 
 export declare interface GQLJQueryGet {
-    get?(...args: any[]): QueryRef<any, any>;
+    get?(...args: any[]): any; // QueryRef<any, any>
 }
 
 export declare interface GQLJazzQueryDefinition {
