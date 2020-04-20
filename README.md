@@ -1,6 +1,6 @@
 # Type GraphQL Client
 
-This is decent draft of a new way to use GraphQL with apollo.
+This is a decent draft of a new way to use GraphQL with apollo.
 With this module i'd like to take a first step, 
 so that graphql can be used with typescript more easily.
 
