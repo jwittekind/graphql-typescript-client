@@ -4,7 +4,6 @@ import { PostsQuery } from "../../operations/posts-query.operations";
 
 /**
  * UserType
- * add a description here!
  */
 @ObjectType('PostType')
 export class PostType {
