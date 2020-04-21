@@ -1,4 +1,4 @@
-# Type GraphQL Client
+# GraphQL Typescript Client
 
 This is a decent draft of a new way to use GraphQL with apollo.
 With this module i'd like to take a first step, 
