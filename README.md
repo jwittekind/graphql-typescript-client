@@ -14,12 +14,16 @@ this.posts$ = PostPaginationType
     .getPosts()
     .byId(5)
     .byPagination({ limit: 10, offset: 0 })
-    .withField('Comments', (comments: PostTypeComments) => {
-        return comments.withPagination({ limit: 0, offset: 0 });
+    .withField(
+        'Comments',
+        (comments: PostTypeComments) => comments
+            .byPagination({ limit: 0, offset: 0 })
+            .with('User')
+        )
     })
     .watchQuery('myPostsQuery').valueChanges;
 
-this.posts$.subscribe(() => ...);    
+this.posts$.subscribe(() => ...);
 
 ...
 `````
